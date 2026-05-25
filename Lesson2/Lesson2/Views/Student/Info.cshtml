@@ -1,0 +1,9 @@
+@model Lesson2.Models.Student
+@{
+    ViewData["Title"] = "Student Info";
+}
+
+<h2>Student Info</h2>
+<p>Tên: @ViewBag.Name</p>
+<p>Tuổi: @ViewData["Age"]</p>
+<p>Ngành: @Model.Major</p>
