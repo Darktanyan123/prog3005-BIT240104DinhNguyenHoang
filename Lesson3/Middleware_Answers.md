@@ -1,4 +1,5 @@
 1. Middleware trong ASP.NET Core dùng để làm gì?
+
 Middleware dùng để xử lý request và response trong pipeline, ví dụ: ghi log, xác thực, phân quyền, xử lý lỗi,...
 
 2. Middleware khác Controller ở điểm nào?
