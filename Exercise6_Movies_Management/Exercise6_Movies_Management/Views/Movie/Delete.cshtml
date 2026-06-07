@@ -1,0 +1,13 @@
+﻿@model Exercise6_Movies_Management.Models.Movie
+
+<h2>Xóa phim</h2>
+
+<p>Bạn có chắc muốn xóa phim @Model.Title ?</p>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+
+    <button type="submit">Xóa</button>
+
+    <a asp-action="Index">Hủy</a>
+</form>

@@ -1,0 +1,39 @@
+﻿@model Exercise6_Movies_Management.Models.Movie
+
+<h2>Sửa phim</h2>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        Tên phim:
+        <input asp-for="Title" />
+        <span asp-validation-for="Title"></span>
+    </div>
+
+    <div>
+        Thể loại:
+        <input asp-for="Genre" />
+        <span asp-validation-for="Genre"></span>
+    </div>
+
+    <div>
+        Thời lượng:
+        <input asp-for="Duration" />
+        <span asp-validation-for="Duration"></span>
+    </div>
+
+    <div>
+        Đạo diễn:
+        <input asp-for="Director" />
+        <span asp-validation-for="Director"></span>
+    </div>
+
+    <button type="submit">Cập nhật</button>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

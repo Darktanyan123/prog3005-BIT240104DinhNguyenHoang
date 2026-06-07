@@ -1,0 +1,49 @@
+﻿@model List<Exercise6_Movies_Management.Models.Movie>
+
+@{
+    ViewData["Title"] = "Danh sách phim";
+}
+
+<h2>Danh sách phim</h2>
+
+<a asp-action="Create">Thêm mới</a>
+
+@if (Model.Count == 0)
+{
+    <p>Chưa có dữ liệu</p>
+}
+else
+{
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Tên phim</th>
+            <th>Thể loại</th>
+            <th>Thời lượng</th>
+            <th>Đạo diễn</th>
+            <th>Chức năng</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.Genre</td>
+                <td>@item.Duration</td>
+                <td>@item.Director</td>
+                <td>
+                    <a asp-action="Detail" asp-route-id="@item.Id">Chi tiết</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </table>
+    @if (TempData["Message"] != null)
+    {
+        <div style="color:green">
+            @TempData["Message"]
+        </div>
+    }
+}
