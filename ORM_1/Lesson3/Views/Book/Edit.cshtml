@@ -1,0 +1,14 @@
+﻿@model Lesson3.Models.Book
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <p>Tên sách</p>
+    <input asp-for="Name" />
+
+    <p>Giá</p>
+    <input asp-for="Price" />
+
+    <br /><br />
+    <button type="submit">Cập nhật</button>
+</form>

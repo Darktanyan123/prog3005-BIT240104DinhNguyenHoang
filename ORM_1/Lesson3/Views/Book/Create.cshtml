@@ -1,0 +1,36 @@
+﻿@model Lesson3.Models.Book
+
+<h2>Thêm sách</h2>
+
+<form asp-action="Create" method="post">
+
+    <div>
+        <label>Tên sách</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name" style="color:red"></span>
+    </div>
+
+    <br />
+
+    <div>
+        <label>Giá</label>
+        <input asp-for="Price" />
+        <span asp-validation-for="Price" style="color:red"></span>
+    </div>
+
+    <br />
+
+    <button type="submit">Thêm</button>
+
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <h3 style="color:green">@ViewBag.Message</h3>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

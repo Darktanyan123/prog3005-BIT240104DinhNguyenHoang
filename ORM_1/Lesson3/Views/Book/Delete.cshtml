@@ -1,0 +1,11 @@
+﻿@model Lesson3.Models.Book
+
+<h3>Bạn có muốn xóa sách này?</h3>
+
+<p>@Model.Name</p>
+<p>@Model.Price</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Xóa</button>
+</form>
