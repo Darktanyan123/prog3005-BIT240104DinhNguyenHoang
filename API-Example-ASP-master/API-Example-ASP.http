@@ -1,0 +1,31 @@
+@API_Example_ASP_HostAddress = http://localhost:5142
+
+### POST - Thêm sản phẩm hợp lệ
+POST {{API_Example_ASP_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Laptop Dell",
+  "price": 15000000
+}
+
+### POST - Dữ liệu không hợp lệ (trả về danh sách lỗi)
+POST {{API_Example_ASP_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "AB",
+  "price": 0
+}
+
+### GET - Lấy sản phẩm theo id
+GET {{API_Example_ASP_HostAddress}}/api/products/1
+Accept: application/json
+
+### GET - Id không hợp lệ
+GET {{API_Example_ASP_HostAddress}}/api/products/abc
+Accept: application/json
+
+### GET - Id âm
+GET {{API_Example_ASP_HostAddress}}/api/products/-1
+Accept: application/json
