@@ -1,0 +1,41 @@
+﻿@model Lesson3.Models.Book
+
+<form asp-action="Edit"
+      method="post"
+      enctype="multipart/form-data">
+
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="ImageUrl" />
+
+    <div>
+        <label>Tên sách</label>
+        <input asp-for="Name" />
+    </div>
+
+    <div>
+        <label>Giá</label>
+        <input asp-for="Price" />
+    </div>
+
+    <div>
+        <label>Ảnh hiện tại</label><br />
+
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img src="@Model.ImageUrl"
+                 width="150" />
+        }
+    </div>
+
+    <div>
+        <label>Chọn ảnh mới</label>
+        <input asp-for="ImageFile"
+               type="file" />
+    </div>
+
+    <br />
+
+    <button type="submit">
+        Cập nhật
+    </button>
+</form>

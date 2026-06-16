@@ -1,0 +1,41 @@
+﻿@model Lesson3.Models.Book
+
+<h2>Chi tiết sách</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <td>@Model.Id</td>
+    </tr>
+
+    <tr>
+        <th>Tên sách</th>
+        <td>@Model.Name</td>
+    </tr>
+
+    <tr>
+        <th>Giá</th>
+        <td>@Model.Price</td>
+    </tr>
+
+    <tr>
+        <th>Hình ảnh</th>
+        <td>
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl"
+                     width="250" />
+            }
+            else
+            {
+                <span>Không có ảnh</span>
+            }
+        </td>
+    </tr>
+</table>
+
+<p>
+    <a asp-action="Index">
+        Quay lại danh sách
+    </a>
+</p>
