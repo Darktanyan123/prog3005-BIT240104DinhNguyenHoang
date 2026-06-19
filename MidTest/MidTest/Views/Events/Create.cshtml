@@ -1,0 +1,77 @@
+﻿@model MidTest.Models.Event_BIT240104
+
+<h2>Thêm sự kiện mới</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th style="width: 25%;">Tên sự kiện</th>
+            <td>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Loại sự kiện</th>
+            <td>
+                <select asp-for="EventCategoryId" class="form-control" asp-items="ViewBag.EventCategoryId">
+                    <option value="">-- Chọn loại --</option>
+                </select>
+                <span asp-validation-for="EventCategoryId" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Giá vé (đ)</th>
+            <td>
+                <input asp-for="Price" type="number" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Ngày bắt đầu</th>
+            <td>
+                <input asp-for="StartDate" type="datetime-local" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Ngày kết thúc</th>
+            <td>
+                <input asp-for="EndDate" type="datetime-local" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Địa điểm</th>
+            <td>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Đường dẫn ảnh (URL)</th>
+            <td>
+                <input type="text" name="ImageUrl" class="form-control" placeholder="http://example.com/image.jpg" />
+            </td>
+        </tr>
+        <tr>
+            <th>Mô tả chi tiết</th>
+            <td>
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+            </td>
+        </tr>
+    </table>
+
+    <p>
+        <button type="submit" class="btn btn-success">Thêm mới</button>
+        <a asp-action="Index" class="btn btn-secondary" style="margin-left:10px;">Quay lại danh sách</a>
+    </p>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,40 @@
+﻿
+@model MidTest.Models.Event_BIT240104
+
+<h2>Xác nhận xóa sự kiện</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+else
+{
+    <div class="alert alert-warning">Bạn có chắc chắn muốn xóa vĩnh viễn sự kiện dưới đây không?</div>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th style="width: 25%;">Tên sự kiện</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Thời gian</th>
+        <td>@Model.StartDate.ToString("dd/MM/yyyy HH:mm") - @Model.EndDate.ToString("dd/MM/yyyy HH:mm")</td>
+    </tr>
+    <tr>
+        <th>Trạng thái hiện tại</th>
+        <td><b>@Model.Status</b></td>
+    </tr>
+</table>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <p>
+        @if (ViewBag.ErrorMessage == null)
+        {
+            <button type="submit" class="btn btn-danger">Thực hiện xóa</button>
+        }
+        <a asp-action="Index" class="btn btn-secondary" style="margin-left:10px;">Hủy bỏ</a>
+    </p>
+</form>

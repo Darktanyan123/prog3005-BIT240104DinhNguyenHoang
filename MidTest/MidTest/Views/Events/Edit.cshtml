@@ -1,0 +1,101 @@
+﻿@model MidTest.Models.Event_BIT240104
+
+@{
+    ViewData["Title"] = "Chỉnh sửa sự kiện";
+}
+
+<h2>Chỉnh sửa sự kiện</h2>
+
+<form asp-action="Edit" method="post">
+
+    ```
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th style="width:25%">Tên sự kiện</th>
+            <td>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Loại sự kiện</th>
+            <td>
+                <select asp-for="EventCategoryId"
+                        asp-items="ViewBag.EventCategoryId"
+                        class="form-control">
+                </select>
+                <span asp-validation-for="EventCategoryId" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Giá vé (đ)</th>
+            <td>
+                <input asp-for="Price" type="number" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Ngày bắt đầu</th>
+            <td>
+                <input asp-for="StartDate"
+                       type="datetime-local"
+                       class="form-control"
+                       value="@Model.StartDate.ToString("yyyy-MM-ddTHH:mm")" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Ngày kết thúc</th>
+            <td>
+                <input asp-for="EndDate"
+                       type="datetime-local"
+                       class="form-control"
+                       value="@Model.EndDate.ToString("yyyy-MM-ddTHH:mm")" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Địa điểm</th>
+            <td>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Mô tả chi tiết</th>
+            <td>
+                <textarea asp-for="Description"
+                          class="form-control"
+                          rows="4"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </td>
+        </tr>
+    </table>
+
+    <button type="submit" class="btn btn-primary">
+        Cập nhật dữ liệu
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Quay lại danh sách
+    </a>
+    ```
+
+</form>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

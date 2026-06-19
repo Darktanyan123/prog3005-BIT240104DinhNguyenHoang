@@ -1,0 +1,83 @@
+﻿
+@model MidTest.Models.Event_BIT240104
+
+<h2>Chi tiết sự kiện</h2>
+
+@if (ViewBag.ImageWarning != null)
+{
+    <div class="alert alert-warning">@ViewBag.ImageWarning</div>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th style="width: 25%;">Tên sự kiện</th>
+        <td><b>@Model.Name</b></td>
+    </tr>
+    <tr>
+        <th>Loại sự kiện</th>
+        <td>@Model.EventCategory?.Name</td>
+    </tr>
+    <tr>
+        <th>Trạng thái</th>
+        <td>
+            @if (Model.Status == "Sắp diễn ra")
+            {
+                <span class="badge bg-warning text-dark">Sắp diễn ra</span>
+            }
+            else if (Model.Status == "Đang diễn ra")
+            {
+
+                <span class="badge bg-success text-white">Đang diễn ra</span>
+            }
+            else
+            {
+
+                <span class="badge bg-secondary text-white">Đã kết thúc</span>
+            }
+        </td>
+    </tr>
+    <tr>
+        <th>Giá vé</th>
+        <td>@Model.Price.ToString("N0") đ</td>
+    </tr>
+    <tr>
+        <th>Thời gian diễn ra</th>
+        <td>Từ @Model.StartDate.ToString("dd/MM/yyyy HH:mm") đến @Model.EndDate.ToString("dd/MM/yyyy HH:mm")</td>
+    </tr>
+    <tr>
+        <th>Địa điểm</th>
+        <td>@Model.Location</td>
+    </tr>
+    <tr>
+        <th>Mô tả</th>
+        <td>@Model.Description</td>
+    </tr>
+    <tr>
+        <th>Danh sách hình ảnh</th>
+        <td>
+            <div class="row">
+                @if (Model.EventImages.Any())
+                {
+                    foreach (var img in Model.EventImages)
+                    {
+                        <div class="col-md-3 text-center mb-2">
+                            <img src="@img.ImageUrl" class="img-thumbnail d-block mb-1" style="height: 120px; object-fit: cover;" />
+                            @if (img.IsThumbnail)
+                            {
+                                <span class="badge bg-primary text-white">Ảnh đại diện</span>
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+                    <span class="text-muted">Chưa có ảnh nào cho sự kiện này.</span>
+                }
+            </div>
+        </td>
+    </tr>
+</table>
+
+<p>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+</p>
