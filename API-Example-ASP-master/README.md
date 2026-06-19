@@ -1,3 +1,7 @@
+thư mục video: https://drive.google.com/drive/folders/1HLPvbjRRx0yOAw78SHZsPA5pDGY4HDEl?usp=drive_link
+video thuyết minh: API
+
+
 Hướng dẫn kết nối API Quản lý sản phẩm (Dành cho Front-end)
 
 Hệ thống API phục vụ cho cả Web và Mobile sử dụng định dạng dữ liệu JSON.
